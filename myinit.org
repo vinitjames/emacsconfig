@@ -1,0 +1,61 @@
+#+STARTIP: overview
+* Interface tweaks
+#+BEGIN_SRC emacs-lisp
+(setq inhibit-sartup-message t)
+(fset 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+* Try
+#+BEGIN_SRC emacs-lisp 
+(use-package which-key
+  :ensure t
+  :config (which-key-mode))
+#+END_SRC
+* Auto Complete
+#+BEGIN_SRC emacs-lisp 
+(use-package auto-complete
+  :ensure t
+  :init
+  (progn
+    (ac-config-default)
+    (global-auto-complete-mode t)
+    ))
+#+END_SRC
+
+* Alias List buffers
+#+BEGIN_SRC emacs-lisp
+(defalias 'list-buffers 'ibuffer-other-window)
+#+END_SRC
+
+* Flycheck
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck
+    :ensure t
+    :init
+    (global-flycheck-mode t))
+#+END_SRC
+* Python
+#+BEGIN_SRC emacs-lisp
+  (use-package jedi
+    :ensure t
+    :init
+    (add-hook 'python-mode-hook 'jedi:setup)
+    (add-hook 'python-mode-hook 'jedi:ac-setup))
+
+  (use-package elpy
+    :ensure t
+    :config
+    (elpy-enable))
+#+END_SRC
+* Yassnippet
+#+BEGIN_SRC emacs-lisp
+  (use-package yasnippet
+    :ensure t
+    :init
+    (yas-global-mode 1))
+
+  (use-package yasnippet-snippets
+    :ensure t
+    :init
+    (yas-global-mode 1))
+#+END_SRC
