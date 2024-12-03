@@ -101,3 +101,23 @@
     (define-key c-mode-map  [(tab)] 'company-complete)
     (define-key c++-mode-map  [(tab)] 'company-complete))
 #+END_SRC
+
+* Semantic Code Completion
+#+BEGIN_SRC emacs-lisp
+  (require 'cc-mode)
+  (require 'semantic)
+  (global-semanticdb-minor-mode 1)
+  (global-semantic-idle-scheduler-mode 1)
+  (global-semantic-stickyfunc-mode 1)
+  (semantic-mode 1)
+#+END_SRC
+
+* GDB manz windows
+#+BEGIN_SRC emacs-lisp
+  (setq
+   ;; use gdb-many-windows by default
+   gdb-many-windows t
+   ;; Non-nil means display source file containing the main routine at startup
+   gdb-show-main t
+   )
+#+END_SRC
